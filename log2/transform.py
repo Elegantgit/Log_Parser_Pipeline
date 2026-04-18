@@ -24,7 +24,7 @@ TARGET_FIELDS = {
     "customerAddress", "customerMeterNumber",
     "debtAmount", "initiationTime",
     "status", "units", "unitsType",
-    "value", "vat"
+    "value", "vat",
     "desc", "retn" 
 }
 
