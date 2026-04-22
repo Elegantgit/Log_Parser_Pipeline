@@ -3,7 +3,7 @@ import ijson
 import json
 
 
-file_path = "./Log2/crown_interactive_january_logs.json"
+file_path = "./crown_interactive_january_logs.json"
 
 # def read_log(file_path, batch_size=1000):
 #     batch = []

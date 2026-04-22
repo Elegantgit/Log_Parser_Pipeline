@@ -2,6 +2,11 @@ from google.cloud import bigquery
 import pandas as pd
 
 client = bigquery.Client()
+project_id = "dataintershipprogram"
+dataset = "LogParser"
+table_name = "mongo_log"
+
+table_id = "dataintershipprogram.LogParser.mongo_log"
 
 
 schema = [

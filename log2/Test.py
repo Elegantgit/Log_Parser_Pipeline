@@ -68,8 +68,10 @@ def run_pipeline(file_path, limit=10):
     df = pd.DataFrame(rows)
 
     print(df)   # 👈 now you see a table
+    print(df.columns.tolist())
     return df
+      
 
 
 if __name__ == "__main__":
-    run_pipeline("./Log2/crown_interactive_january_logs.json")
+    run_pipeline("crown_interactive_january_logs.json")

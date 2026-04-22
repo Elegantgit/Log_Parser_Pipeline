@@ -1,5 +1,8 @@
 __pycache__/
 *.pyc
 *.json
-log2/
 .DS_Store
+log2/crown_interactive_january_logs.json
+__pycache__/
+ingest.ipynb
+loadnote.ipynb

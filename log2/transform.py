@@ -25,12 +25,23 @@ TARGET_FIELDS = {
     "debtAmount", "initiationTime",
     "status", "units", "unitsType",
     "value", "vat",
-    "desc", "retn" 
+    
 }
 
 def parse_xml(xml_string):
     if not xml_string:
         return {}
+    
+    if not xml_string.startswith("<"):
+        return {}
+    
+
+    # try JSON first
+    if data.startswith("{"):
+        try:
+            return json.loads(data)
+        except:
+            pass
 
     try:
         root = ET.fromstring(xml_string)
@@ -55,13 +66,13 @@ def parse_xml(xml_string):
 
 
 
-def normalize_response(data):
-    if "desc" in data:
-        data["status"] = data["desc"]
-    if "retn" in data:
-        data["response_code"] = data["retn"]
+# def normalize_response(data):
+#     if "desc" in data:
+#         data["status"] = data["desc"]
+#     if "retn" in data:
+#         data["response_code"] = data["retn"]
 
-    return data
+#     return data
 
 
 def to_float(val):
@@ -102,7 +113,10 @@ def transform_record(record):
 
 
     combined = {**top, **xml}
-    combined = normalize_response(combined)
+    # combined = normalize_response(combined)
+
+    for field in TARGET_FIELDS:
+        combined.setdefault(field, None)
 
     #combined = {**top, **xml}
     return clean_record(combined)
